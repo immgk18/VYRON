@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Activity, AudioLines, Check, CircleStop, Cpu, Mic, MicOff, Send, ShieldCheck, Volume2, VolumeX, Waves } from "lucide-react";
+import { Activity, AudioLines, Check, CircleStop, Cpu, Mic, ShieldCheck, Volume2, VolumeX, Waves } from "lucide-react";
 
 type Message = { role: "user" | "assistant"; content: string };
 type Health = { ollama_connected: boolean; configured_model: string; model_available: boolean };
@@ -12,7 +12,6 @@ const starter: Message = {
 
 export default function App() {
   const [messages, setMessages] = useState<Message[]>([starter]);
-  const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [recording, setRecording] = useState(false);
   const [speaking, setSpeaking] = useState(true);
@@ -66,7 +65,6 @@ export default function App() {
     const content = raw.trim();
     if (!content || busy) return;
     setError("");
-    setInput("");
     window.speechSynthesis?.cancel();
     const next = [...messages, { role: "user" as const, content }];
     setMessages(next);
@@ -233,13 +231,7 @@ export default function App() {
                 <button className="secondary-button" onClick={() => void checkHealth()} title="Check local AI connection"><Activity size={17} /></button>
               </div>
             </div>
-            <details className="text-fallback">
-              <summary>Use text input instead</summary>
-              <form onSubmit={(event) => { event.preventDefault(); void sendCommand(input); }}>
-                <input value={input} onChange={(event) => setInput(event.target.value)} placeholder="Type a command…" disabled={busy} />
-                <button type="submit" disabled={busy || !input.trim()} aria-label="Send command"><Send size={17} /></button>
-              </form>
-            </details>
+  
           </div>
         </section>
 
