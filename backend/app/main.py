@@ -10,6 +10,7 @@ from pydantic import BaseModel, Field
 
 from .agent import ask_vyron
 from .config import OLLAMA_BASE_URL, OLLAMA_MODEL, WHISPER_MODEL
+from .voice import get_whisper_model
 
 app = FastAPI(title="VYRON Local Agent", version="0.1.0", description="Local-first voice AI agent API")
 
@@ -80,12 +81,10 @@ async def transcribe(file: UploadFile = File(...)):
 
     temp_path = None
     try:
-        from faster_whisper import WhisperModel
-
         with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as temp:
             temp.write(data)
             temp_path = temp.name
-        model = WhisperModel(WHISPER_MODEL, device="cpu", compute_type="int8")
+        model = get_whisper_model(WHISPER_MODEL)
         segments, _ = model.transcribe(temp_path, vad_filter=True)
         transcript = " ".join(segment.text.strip() for segment in segments).strip()
         if not transcript:
