@@ -58,6 +58,7 @@ async def ask_vyron(messages: list[dict]) -> str:
                     result = {"ok": False, "error": str(exc)}
                 history.append({
                     "role": "tool",
+                    "tool_name": name,
                     "content": json.dumps(result, ensure_ascii=False),
                 })
             payload["messages"] = history
