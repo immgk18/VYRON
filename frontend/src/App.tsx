@@ -61,9 +61,9 @@ export default function App() {
     window.speechSynthesis.speak(utterance);
   }
 
-  async function sendCommand(raw: string) {
+  async function sendCommand(raw: string, fromVoice = false) {
     const content = raw.trim();
-    if (!content || busy) return;
+    if (!content || (busy && !fromVoice)) return;
     setError("");
     window.speechSynthesis?.cancel();
     const next = [...messages, { role: "user" as const, content }];
@@ -129,7 +129,7 @@ export default function App() {
           if (!transcript) throw new Error("I couldn't hear a command clearly. Please try again.");
           setLastTranscript(transcript);
           setBusy(false);
-          await sendCommand(transcript);
+          await sendCommand(transcript, true);
         } catch (err) {
           setError(err instanceof Error ? err.message : "Voice transcription failed.");
           setBusy(false);
