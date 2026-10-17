@@ -446,3 +446,112 @@ h3 { color: #f3e8ff; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+
+/* VYRON: full-screen energy core + transparent HUD */
+html, body, #root { width:100%; min-height:100%; }
+body { min-height:100dvh; overflow-x:hidden; }
+.app-shell {
+  width:100%;
+  max-width:none;
+  min-height:100dvh;
+  grid-template-columns:54px minmax(0,1fr);
+  background:transparent;
+}
+.sidebar {
+  min-height:100dvh;height:100dvh;padding:14px 0;gap:16px;
+  background:rgba(13,7,24,.12);
+  border-right-color:rgba(192,132,252,.12);
+  backdrop-filter:blur(8px);
+}
+.main-column {
+  width:100%;max-width:none;min-height:100dvh;
+  padding:0 clamp(12px,2vw,30px);
+  background:transparent;
+}
+.topbar {
+  height:64px;min-height:64px;
+  border-bottom-color:rgba(192,132,252,.12);
+}
+.content-grid {
+  padding-top:10px;gap:16px;
+  grid-template-columns:minmax(0,1fr) minmax(210px,250px);
+}
+.welcome-row {
+  min-height:130px;padding:0 4px 8px;
+}
+h2 { font-size:clamp(27px,3.2vw,40px);margin:8px 0; }
+.intro-copy {font-size:11px;line-height:1.5}
+.core-visual {
+  width:clamp(110px,15vw,160px);
+  height:clamp(105px,13vw,145px);
+  flex-basis:clamp(110px,15vw,160px);
+  transform:scale(.88);
+  transform-origin:center;
+}
+.core-orb {width:clamp(58px,6vw,76px);height:clamp(58px,6vw,76px)}
+.capability-row {gap:6px;padding-bottom:10px}
+.capability {
+  background:rgba(30,13,48,.08);
+  border-color:rgba(192,132,252,.15);
+  backdrop-filter:blur(4px);
+  padding:7px 9px;
+}
+.glass-panel {
+  background:rgba(15,8,26,.13) !important;
+  border-color:rgba(192,132,252,.16);
+  box-shadow:0 8px 28px rgba(0,0,0,.06),inset 0 1px 0 rgba(233,213,255,.025);
+  backdrop-filter:blur(9px);
+}
+.glass-panel:before {opacity:.45}
+.conversation-panel {min-height:0;max-height:calc(100dvh - 240px);border-radius:14px}
+.panel-heading {padding:10px 14px}
+.message-list {padding:8px 14px;min-height:70px;max-height:calc(100dvh - 400px)}
+.chat-message {padding:7px 0}
+.chat-content p {font-size:11px;line-height:1.55}
+.chat-avatar {height:26px;min-width:26px;border-radius:8px}
+.composer {margin:6px 9px 9px;background:rgba(12,5,22,.14);border-color:rgba(192,132,252,.2)}
+.composer textarea {min-height:42px;padding:9px 11px 5px}
+.composer-footer {padding:5px 7px 7px 10px}
+.mic-control,.send-button {width:30px;height:30px}
+.bottom-note {padding-top:8px;font-size:9px}
+.right-rail {gap:9px}
+.side-card {padding:12px}
+.side-card-heading {margin-bottom:10px}
+.system-status {padding-bottom:10px}
+.metric-line {padding:7px 0}
+.policy-title {margin-bottom:8px}
+.side-copy {font-size:10px;line-height:1.55}
+.policy-rule {font-size:10px;margin-top:6px}
+.policy-footnote {font-size:9px;line-height:1.45;margin-top:8px}
+.quick-action {padding:8px 0}
+@media(max-height:760px) and (min-width:761px) {
+  .content-grid {padding-top:6px}
+  .welcome-row {min-height:112px}
+  .conversation-panel {max-height:calc(100dvh - 205px)}
+  .message-list {max-height:calc(100dvh - 360px)}
+  .right-rail .side-card:nth-child(2) .policy-footnote {display:none}
+}
+@media(max-width:900px) {
+  .content-grid {grid-template-columns:minmax(0,1fr)}
+  .right-rail {display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .right-rail .quick-card {display:none}
+  .conversation-panel {max-height:none}
+  .message-list {max-height:34dvh}
+}
+@media(max-width:540px) {
+  .app-shell {grid-template-columns:42px minmax(0,1fr)}
+  .main-column {padding:0 10px}
+  .topbar {height:58px;min-height:58px}
+  .connection-pill {max-width:150px;font-size:8px;padding:7px 8px}
+  .content-grid {padding-top:8px}
+  .welcome-row {min-height:120px;gap:4px}
+  .welcome-row > div:first-child {min-width:0}
+  h2 {font-size:27px}
+  .core-visual {transform:scale(.68);margin-left:-16px;margin-right:-18px}
+  .capability {font-size:9px;padding:6px 7px}
+  .right-rail {grid-template-columns:minmax(0,1fr)}
+  .right-rail .side-card:nth-child(2) {display:none}
+  .composer-footer>span {font-size:8px}
+  .bottom-note {flex-wrap:wrap}
+}
