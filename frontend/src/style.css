@@ -287,3 +287,162 @@ h3{color:#e6f7ff}
 @media(prefers-reduced-motion:reduce){
   .core-visual:after{animation:none}
 }
+
+
+/* VYRON PURPLE NEBULA THEME — visual-only override */
+:root {
+  color-scheme: dark;
+  --vyron-purple: #a78bfa;
+  --vyron-violet: #8b5cf6;
+  --vyron-pink: #e879f9;
+  --vyron-lilac: #d8b4fe;
+}
+body {
+  background:
+    radial-gradient(ellipse at 75% 12%, rgba(124,58,237,.22), transparent 38%),
+    radial-gradient(ellipse at 15% 82%, rgba(192,38,211,.12), transparent 34%),
+    #080611;
+}
+body:before {
+  opacity: .45;
+  background-image:
+    linear-gradient(rgba(168,85,247,.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168,85,247,.075) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: radial-gradient(ellipse at center, black, transparent 83%);
+}
+body:after {
+  opacity: .045;
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 4px, rgba(216,180,254,.2) 5px, transparent 6px);
+}
+.sidebar {
+  background: linear-gradient(180deg, rgba(17,10,33,.96), rgba(8,6,18,.94));
+  border-right-color: rgba(168,85,247,.24);
+  box-shadow: 8px 0 44px rgba(91,33,182,.12);
+}
+.brand-symbol {
+  color: #e9d5ff;
+  border-color: rgba(192,132,252,.55);
+  background: linear-gradient(145deg, rgba(139,92,246,.34), rgba(76,29,149,.24));
+  box-shadow: 0 0 28px rgba(168,85,247,.22), inset 0 0 18px rgba(216,180,254,.09);
+}
+.brand-symbol svg { filter: drop-shadow(0 0 8px rgba(216,180,254,.85)); }
+.nav-button:hover,.nav-button.selected {
+  color: #f0abfc;
+  background: linear-gradient(100deg, rgba(139,92,246,.22), rgba(192,38,211,.09));
+  border-color: rgba(192,132,252,.38);
+  box-shadow: inset 3px 0 0 #a78bfa, 0 0 24px rgba(139,92,246,.08);
+}
+.eyebrow { color: #c4b5fd; }
+.accent-label { color: #e879f9; }
+h1 span {
+  color: #d8b4fe;
+  text-shadow: 0 0 22px rgba(192,132,252,.48);
+}
+.connection-pill {
+  border-color: rgba(192,132,252,.28);
+  background: linear-gradient(110deg, rgba(40,20,68,.88), rgba(20,11,35,.86));
+}
+.icon-button {
+  border-color: rgba(192,132,252,.26);
+  background: rgba(23,13,39,.88);
+}
+.icon-button:hover { color: #f0abfc; border-color: rgba(232,121,249,.6); }
+.welcome-row:before { color: rgba(216,180,254,.48); }
+h2 span {
+  background: linear-gradient(100deg, #e9d5ff 0%, #c084fc 42%, #f0abfc 76%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 18px rgba(168,85,247,.22));
+}
+.core-visual { filter: drop-shadow(0 0 34px rgba(139,92,246,.19)); }
+.core-orb {
+  background: radial-gradient(circle at 29% 22%, #fff 0, #f5d0fe 5%, #c084fc 17%, #8b5cf6 34%, #482080 56%, #1a1030 76%, #080611 100%);
+  box-shadow: inset -12px -12px 24px rgba(0,0,0,.62), 0 0 34px rgba(192,132,252,.46), 0 0 88px rgba(139,92,246,.28);
+}
+.core-halo { border-color: rgba(192,132,252,.62); box-shadow: 0 0 22px rgba(168,85,247,.13); }
+.halo-b { border-color: rgba(232,121,249,.52); }
+.core-crosshair { background: linear-gradient(90deg, transparent, rgba(216,180,254,.68), transparent); }
+.core-visual:after { border-color: rgba(192,132,252,.4); }
+.core-visual:before { background: #f0abfc; box-shadow: 0 0 12px #e879f9, 0 0 26px rgba(232,121,249,.8); }
+.core-active .core-orb { box-shadow: 0 0 48px rgba(192,132,252,.72), 0 0 112px rgba(139,92,246,.4); }
+.capability {
+  background: linear-gradient(135deg, rgba(37,20,62,.85), rgba(16,10,28,.9));
+  border-color: rgba(192,132,252,.2);
+}
+.capability:hover {
+  border-color: rgba(232,121,249,.5);
+  background: linear-gradient(135deg, rgba(61,31,94,.82), rgba(24,12,40,.9));
+  box-shadow: 0 12px 34px rgba(91,33,182,.12);
+}
+.capability svg { color: #d8b4fe; }
+.glass-panel {
+  background: linear-gradient(145deg, rgba(23,14,39,.94), rgba(10,7,19,.92));
+  border-color: rgba(192,132,252,.22);
+  box-shadow: 0 22px 68px rgba(0,0,0,.3), 0 0 34px rgba(91,33,182,.055), inset 0 1px 0 rgba(233,213,255,.075);
+}
+.glass-panel:before {
+  background: linear-gradient(90deg, transparent, rgba(168,85,247,.75), rgba(232,121,249,.68), transparent);
+}
+.side-card:hover,.conversation-panel:hover {
+  border-color: rgba(192,132,252,.38);
+  box-shadow: 0 22px 70px rgba(0,0,0,.3), 0 0 34px rgba(139,92,246,.1), inset 0 1px 0 rgba(233,213,255,.08);
+}
+h3 { color: #f3e8ff; }
+.session-state { color: #c4b5fd; }
+.chat-avatar {
+  background: linear-gradient(145deg, rgba(139,92,246,.28), rgba(192,38,211,.14));
+  border-color: rgba(192,132,252,.34);
+  color: #e9d5ff;
+  box-shadow: inset 0 0 16px rgba(168,85,247,.08);
+}
+.user-chat .chat-avatar { border-color: rgba(232,121,249,.32); }
+.chat-content p { color: #eee6fb; }
+.chat-meta { color: #b9a7d4; }
+.composer {
+  background: rgba(12,7,22,.94);
+  border-color: rgba(192,132,252,.3);
+  box-shadow: inset 0 0 24px rgba(139,92,246,.06);
+}
+.composer:focus-within {
+  border-color: rgba(192,132,252,.72);
+  box-shadow: 0 0 0 3px rgba(139,92,246,.14), 0 0 30px rgba(168,85,247,.13);
+}
+.composer textarea { color: #faf5ff; }
+.composer textarea::placeholder { color: #9b8ab8; }
+.mic-control,.refresh-button {
+  background: rgba(42,24,65,.78);
+  border-color: rgba(192,132,252,.24);
+}
+.mic-control:hover,.refresh-button:hover {
+  background: rgba(70,35,103,.8);
+  border-color: rgba(232,121,249,.5);
+}
+.send-button {
+  color: #160922;
+  background: linear-gradient(135deg, #e9d5ff, #c084fc 52%, #f0abfc);
+  border-color: rgba(233,213,255,.86);
+  box-shadow: 0 0 24px rgba(168,85,247,.25);
+}
+.send-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #fff, #e9d5ff 52%, #f5d0fe);
+  box-shadow: 0 0 32px rgba(192,132,252,.4);
+}
+.side-card-heading { color: #d8b4fe; }
+.side-card-heading svg,.bottom-note svg { color: #c084fc; }
+.policy-icon,.quick-icon {
+  background: linear-gradient(145deg, rgba(139,92,246,.26), rgba(192,38,211,.16));
+  border-color: rgba(192,132,252,.3);
+  color: #e9d5ff;
+}
+.quick-action:hover strong { color: #f0abfc; }
+.quick-action:hover .quick-icon { border-color: rgba(232,121,249,.55); box-shadow: 0 0 20px rgba(168,85,247,.15); }
+.system-status,.panel-heading,.app-footer { border-color: rgba(192,132,252,.18); }
+.metric-line { border-color: rgba(192,132,252,.12); }
+.metric-line span { color: #b9a7d4; }
+.metric-line strong { color: #f3e8ff; }
+.message-list { scrollbar-color: #7040a5 transparent; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
