@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 import tempfile
 from pathlib import Path
 
@@ -13,6 +14,7 @@ from .config import OLLAMA_BASE_URL, OLLAMA_MODEL, WHISPER_MODEL
 from .voice import get_whisper_model
 
 app = FastAPI(title="VYRON Local Agent", version="0.1.0", description="Local-first voice AI agent API")
+logger = logging.getLogger("vyron.voice")
 
 app.add_middleware(
     CORSMiddleware,
@@ -95,7 +97,9 @@ async def transcribe(file: UploadFile = File(...)):
     except ImportError:
         raise HTTPException(status_code=503, detail="Speech recognition is not installed. Install the requirements.txt dependencies.")
     except Exception as exc:
-        raise HTTPException(status_code=500, detail=f"Could not transcribe audio: {type(exc).__name__}")
+        logger.exception("Voice transcription failed")
+        # This is a localhost-only development API; include the exception message so setup issues can be diagnosed.
+        raise HTTPException(status_code=500, detail=f"Could not transcribe audio: {type(exc).__name__}: {exc}")
     finally:
         if temp_path:
             Path(temp_path).unlink(missing_ok=True)
